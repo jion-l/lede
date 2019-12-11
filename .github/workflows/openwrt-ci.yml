@@ -56,6 +56,7 @@ jobs:
 
       - name: Update feeds
         run: |
+          cd package/lean/ && git clone https://github.com/honwen/luci-app-aliddns.git && cd ../../
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
@@ -184,6 +185,7 @@ jobs:
           CONFIG_DEFAULT_luci-app-accesscontrol=y
           CONFIG_DEFAULT_luci-app-adbyby-plus=y
           CONFIG_DEFAULT_luci-app-arpbind=y
+          CONFIG_PACKAGE_luci-app-aliddns=y
           CONFIG_DEFAULT_luci-app-autoreboot=y
           CONFIG_DEFAULT_luci-app-ddns=y
           CONFIG_DEFAULT_luci-app-filetransfer=y
