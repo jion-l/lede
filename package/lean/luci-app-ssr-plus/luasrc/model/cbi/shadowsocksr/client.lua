@@ -71,6 +71,7 @@ o.default = 1
 
 o = s:option(ListValue, "tunnel_forward", translate("Anti-pollution DNS Server"))
 o:value("127.0.0.1:7888", translate("localhost 127.0.0.1:7888"))
+o:value("127.0.0.1:7999", translate("localhost 127.0.0.1:7999"))
 o:value("127.0.0.1:53", translate("localhost 127.0.0.1:53"))
 o:value("8.8.4.4:53", translate("Google Public DNS (8.8.4.4)"))
 o:value("8.8.8.8:53", translate("Google Public DNS (8.8.8.8)"))
