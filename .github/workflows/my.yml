@@ -12,9 +12,9 @@ name: 进阶版云编译1.更换固件平台
 on:
   schedule:
     - cron: 0 20 * * *
-  # push:
-  #   branches: 
-  #     - master
+  push:
+    branches: 
+      - master
 
 jobs:
   build:
