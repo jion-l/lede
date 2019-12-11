@@ -11,7 +11,7 @@ name: MyOpenwrt
 
 on:
   schedule:
-    - cron: 0 20 * * *
+    - cron: 15 22 * * *
   push:
      branches: nnnn
        - master
