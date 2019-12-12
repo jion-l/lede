@@ -7,13 +7,13 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: MyOpenwrt
+name: 添加阿里单独ddns插件
 
 on:
   schedule:
     - cron: 15 22 * * *
   push:
-     branches: nnnn
+     branches: 
        - master
 
 jobs:
