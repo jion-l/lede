@@ -7,11 +7,11 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: OpenWr
+name: 修改版本openwrt
 
 on:
   schedule:
-    - cron: 0 20 * * *
+    - cron: 0 21 * * *
   push:
      branches: nnnn
        - master
@@ -21,12 +21,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@master
         with:
           ref: master
 
-      - name: Initialization environment
+      - name: 拉取docker镜像，安装更新软件包
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -53,18 +53,18 @@ jobs:
           sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
-      - name: 涡轮增雕进程
+      - name: 添加未包含luci-app
         run: |
           cd package
           mkdir openwrt-packages
           cd openwrt-packages
           git clone https://github.com/honwen/luci-app-aliddns.git
-      - name: Update feeds
+      - name: 更新安装feeds包
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
-      - name: Costom configure file
+      - name: 修改配置文件
         run: |
           rm -f ./.config*
           touch ./.config
@@ -1428,26 +1428,26 @@ jobs:
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
 
-      - name: Make download
+      - name: 下载编译需要的dl包
         run: |
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
 
-      - name: Compile firmware
+      - name: 开始编译固件
         run: |
           echo -e "$(nproc) thread build."
           make -j$(nproc) V=s
 
 
-      - name: Assemble artifact
+      - name: 清理原有镜像
         run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
           find ./bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
 
-      - name: Upload artifact
+      - name: 上传镜像
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt firmware
