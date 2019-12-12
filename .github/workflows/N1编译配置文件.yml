@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: 修改版本openwrt
+name: N1 Openwrt 在线编译多插件
 
 on:
   schedule:
