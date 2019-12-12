@@ -1182,7 +1182,7 @@ jobs:
           mkdir -p ./artifact/
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
           find ./bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
-
+          find ./bin/targets/ -name "*openwrt*root*" | xargs -i mv -f {} ./artifact/
       - name: 上传镜像
         uses: actions/upload-artifact@master
         with:
