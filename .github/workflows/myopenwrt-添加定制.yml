@@ -16,7 +16,7 @@ on:
      branches: nnnn
        - master
   watch:
-     types: [commit]
+     types: [started]
 
 jobs:
   build:
