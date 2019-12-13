@@ -12,9 +12,9 @@ name: 添加阿里单独ddns插件
 on:
 # schedule:
 #    - cron: 15 22 * * *
-#  push:
-#     branches: 
-#       - master
+  push:
+    branches: nnn
+      - master
 
 jobs:
   build:
