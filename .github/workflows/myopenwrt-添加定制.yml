@@ -12,9 +12,9 @@ name: 修改版本openwrt
 on:
 #  schedule:
 #    - cron: 0 22 * * *
-#  push:
-#     branches: nnnn
-#       - master
+  push:
+    branches: nnnn
+      - master
 #  watch:
 #    types: [started]
 
