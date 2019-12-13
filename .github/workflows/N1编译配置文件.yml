@@ -35,7 +35,7 @@ jobs:
           docker rmi `docker images -q`
           echo "Deleting files, please wait ..."
           sudo rm -rf \
-            /usr/share/dotnet \
+            /usr/share/dotnet /etc/apt/sources.list.d/* \
             /etc/mysql \
             /etc/php
           sudo -E apt-get -y purge \
