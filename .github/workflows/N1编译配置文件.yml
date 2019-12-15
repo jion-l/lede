@@ -15,8 +15,8 @@ on:
 #  push:
 #     branches: nnnn
 #       - master
-#  watch:
-#   types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -111,6 +111,7 @@ jobs:
           # 编译N1固件:
           cat >> .config <<EOF
           CONFIG_MODULES=y
+          CONFIG_MODULES=y
           CONFIG_HAVE_DOT_CONFIG=y
           CONFIG_TARGET_armvirt=y
           CONFIG_TARGET_armvirt_64=y
@@ -144,6 +145,13 @@ jobs:
           CONFIG_DEFAULT_libgcc=y
           CONFIG_DEFAULT_logd=y
           CONFIG_DEFAULT_luci=y
+          # 外部luci#######################################
+          CONFIG_DEFAULT_luci-app-aliddns=y
+          CONFIG_DEFAULT_luci-theme-atmaterial=y
+          CONFIG_DEFAULT_luci-app-adguardhome=y
+          CONFIG_DEFAULT_luci-theme-material=y
+          CONFIG_DEFAULT_luci-theme-Light=y
+          ###########################################
           CONFIG_DEFAULT_luci-app-accesscontrol=y
           CONFIG_DEFAULT_luci-app-adbyby-plus=y
           CONFIG_DEFAULT_luci-app-arpbind=y
@@ -922,10 +930,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
           CONFIG_PACKAGE_luci-app-xlnetacc=y
           CONFIG_PACKAGE_luci-app-zerotier=y
-          CONFIG_PACKAGE_luci-theme-Light=y
-          CONFIG_PACKAGE_luci-theme-atmaterial=y
           CONFIG_PACKAGE_luci-theme-argon=y
-          CONFIG_PACKAGE_luci-theme-material=y
           CONFIG_PACKAGE_luci-theme-bootstrap=y
           CONFIG_PACKAGE_luci-theme-material=y
           CONFIG_PACKAGE_luci-theme-netgear=y
@@ -1149,6 +1154,7 @@ jobs:
           CONFIG_PACKAGE_runc=y
           CONFIG_PACKAGE_shellsync=y
           CONFIG_PACKAGE_tini=y
+
           EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
