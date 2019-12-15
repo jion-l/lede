@@ -65,6 +65,9 @@ jobs:
           git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
           git clone https://github.com/LuttyYang/luci-theme-material.git
           git clone https://github.com/Aslin-Ameng/luci-theme-Light.git
+          git clone https://github.com/jerrykuku/luci-theme-argon.git
+          git clone https://github.com/rosywrt/luci-theme-rosy.git
+          git clone https://github.com/apollo-ng/luci-theme-darkmatter.git
       - name: 更新安装feeds包
         run: |
           ./scripts/feeds update -a
@@ -151,6 +154,9 @@ jobs:
           CONFIG_DEFAULT_luci-app-adguardhome=y
           CONFIG_DEFAULT_luci-theme-material=y
           CONFIG_DEFAULT_luci-theme-Light=y
+          CONFIG_DEFAULT_luci-theme-argon=y
+          CONFIG_DEFAULT_luci-theme-rosy=y
+          CONFIG_DEFAULT_luci-theme-darkmatter=y
           ###########################################
           CONFIG_DEFAULT_luci-app-accesscontrol=y
           CONFIG_DEFAULT_luci-app-adbyby-plus=y
